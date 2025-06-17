@@ -69,7 +69,7 @@ export class CompanyDomainService implements CompanyServicePort {
     if (aux === 10) {
       aux = 9;
     }
-    console.log(aux);
+
     return aux === parseInt(cuit[10], 10);
   }
 }
