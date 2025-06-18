@@ -1,4 +1,4 @@
-# SOOFT Challenge BE - Interbanking
+# SOOFT Challenge BE - Interbanking (Server)
 
 - [Versión en Español](./README.es.md)
 
