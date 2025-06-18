@@ -6,6 +6,12 @@
 $ npm install
 ```
 
+## Seed database
+
+```bash
+$ npm run seed
+```
+
 ## Compile and run the project
 
 ```bash
