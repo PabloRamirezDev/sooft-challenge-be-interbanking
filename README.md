@@ -38,6 +38,33 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## Test Endpoints
+
+1. Retrieve all companies that made transfers in last month.
+
+```http
+GET /companies?withTransfersAfter=last-month
+```
+
+2. Retrieve all companies that started in last month.
+
+```http
+GET /companies?startedAfter=last-month
+```
+
+3. Create a new company with type SME (PyME).
+
+```http
+POST /companies
+Content-Type: application/json
+
+{
+	"companyName": "Test Company",
+	"cuit": "12-34567890-3",
+    "companyType": "sme"
+}
+```
+
 ## Assumptions
 
 - It is not necessary to include a general endpoint to retrieve companies.
