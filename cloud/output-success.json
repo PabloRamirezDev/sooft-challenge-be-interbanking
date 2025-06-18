@@ -1,0 +1,11 @@
+{
+  "statusCode": 201,
+  "body": {
+    "message": "Company created successfully",
+    "data": {
+      "companyName": "Test Company",
+      "cuit": "12-34567890-3",
+      "companyType": "sme"
+    }
+  }
+}

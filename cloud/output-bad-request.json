@@ -1,0 +1,6 @@
+{
+  "statusCode": 400,
+  "body": {
+    "message": "Invalid CUIT format"
+  }
+}

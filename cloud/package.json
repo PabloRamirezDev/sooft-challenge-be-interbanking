@@ -1,0 +1,17 @@
+{
+  "name": "sooft-challenge-be-interbanking-cloud",
+  "version": "0.0.1",
+  "main": "handler.js",
+  "scripts": {},
+  "author": "",
+  "license": "UNLICENSED",
+  "description": "",
+  "dependencies": {
+    "@aws-sdk/client-sqs": "^3.831.0",
+    "aws-lambda": "^1.0.7"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.150",
+    "@types/node": "^24.0.3"
+  }
+}
