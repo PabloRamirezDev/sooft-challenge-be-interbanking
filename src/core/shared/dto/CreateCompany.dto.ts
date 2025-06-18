@@ -1,4 +1,5 @@
-import { IsString } from 'class-validator';
+import { IsEnum, IsString } from 'class-validator';
+import { CompanyType } from '../enums/company-type.enum';
 
 export class CreateCompanyDTO {
   @IsString()
@@ -6,4 +7,7 @@ export class CreateCompanyDTO {
 
   @IsString()
   cuit: string;
+
+  @IsEnum(CompanyType)
+  companyType: CompanyType;
 }

@@ -1,5 +1,6 @@
 import { Repository } from 'typeorm';
 import { CompanyRepositoryAdapter } from './company.repository.adapter';
+import { CompanyType } from '../../core/shared/enums/company-type.enum';
 
 describe('CompanyRepositoryAdapter', () => {
   let adapter: CompanyRepositoryAdapter;
@@ -55,6 +56,7 @@ describe('CompanyRepositoryAdapter', () => {
         companyName: 'Test 3',
         cuit: '33-33333333-3',
         startDate: new Date(),
+        companyType: CompanyType.Corporate,
       };
 
       repositoryMock.save.mockResolvedValue(company);

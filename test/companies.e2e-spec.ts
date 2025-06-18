@@ -4,6 +4,7 @@ import * as request from 'supertest';
 import { AppModule } from '../src/app.module';
 import { COMPANY_SERVICE } from '../src/core/core.module';
 import { CompanyService } from '../src/core/application/services/Company.service';
+import { CompanyType } from '../src/core/shared/enums/company-type.enum';
 
 describe('CompaniesController (e2e)', () => {
   let app: INestApplication;
@@ -39,6 +40,7 @@ describe('CompaniesController (e2e)', () => {
         cuit: '11-11111111-1',
         companyName: 'test 1',
         startDate: new Date(),
+        companyType: CompanyType.SME,
       },
     ];
 
@@ -67,6 +69,7 @@ describe('CompaniesController (e2e)', () => {
         cuit: '22-22222222-2',
         companyName: 'test 2',
         startDate: new Date(),
+        companyType: CompanyType.SME,
       },
     ];
 
@@ -91,6 +94,7 @@ describe('CompaniesController (e2e)', () => {
         cuit: '33-33333333-3',
         companyName: 'test 3',
         startDate: new Date(),
+        companyType: CompanyType.SME,
       },
     ];
 
@@ -119,6 +123,7 @@ describe('CompaniesController (e2e)', () => {
         cuit: '44-44444444-4',
         companyName: 'test 4',
         startDate: new Date(),
+        companyType: CompanyType.SME,
       },
     ];
 
@@ -148,7 +153,11 @@ describe('CompaniesController (e2e)', () => {
   });
 
   test('POST /companies (valid body)', () => {
-    const newCompany = { companyName: 'test 1', cuit: '11-11111111-1' };
+    const newCompany = {
+      companyName: 'test 1',
+      cuit: '11-11111111-1',
+      companyType: 'sme',
+    };
 
     companyApplicationMock.createCompany.mockResolvedValueOnce('aaa');
 

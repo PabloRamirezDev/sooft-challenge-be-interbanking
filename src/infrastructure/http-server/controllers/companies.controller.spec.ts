@@ -2,6 +2,7 @@ import { Test } from '@nestjs/testing';
 import { CompaniesController } from './Companies.controller';
 import { COMPANY_SERVICE } from '../../../core/core.module';
 import { BadRequestException } from '@nestjs/common';
+import { CompanyType } from '../../../core/shared/enums/company-type.enum';
 
 describe('CompaniesController', () => {
   let controller: CompaniesController;
@@ -35,7 +36,11 @@ describe('CompaniesController', () => {
 
   describe('createCompany', () => {
     it('should call companyCreator.createCompany with the body params', async () => {
-      const dto = { cuit: '11-11111111-1', companyName: 'test' };
+      const dto = {
+        cuit: '11-11111111-1',
+        companyName: 'test',
+        companyType: CompanyType.SME,
+      };
       companyCreatorMock.createCompany.mockResolvedValue('1');
 
       const result = await controller.createCompany(dto);

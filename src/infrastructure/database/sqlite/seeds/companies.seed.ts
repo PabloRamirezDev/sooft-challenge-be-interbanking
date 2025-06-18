@@ -1,3 +1,4 @@
+import { CompanyType } from 'src/core/shared/enums/company-type.enum';
 import { CompanyEntity } from '../entities/company.entity';
 
 export const companies = [
@@ -6,17 +7,20 @@ export const companies = [
     companyName: 'Google',
     cuit: '11-11111111-1',
     startDate: new Date(),
+    companyType: CompanyType.Corporate,
   },
   {
     id: '8f94b52b-850b-4032-bbc6-47bf6c29825f',
     companyName: 'Apple',
     cuit: '22-22222222-2',
     startDate: new Date(),
+    companyType: CompanyType.Corporate,
   },
   {
     id: 'fe3570d5-5a36-45d8-a647-b4dea844eaf1',
     companyName: 'Netflix',
     cuit: '33-33333333-3',
     startDate: new Date(),
+    companyType: CompanyType.Corporate,
   },
 ] as CompanyEntity[];

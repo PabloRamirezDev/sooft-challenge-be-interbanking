@@ -2,6 +2,7 @@ import { CompanyServicePort } from '../../domain/ports/inbound/company.service.p
 import { CompanyService } from './Company.service';
 import { Company } from '../../domain/entities/company.entity';
 import { CompanyApplicationError } from '../../shared/error/company-application.error';
+import { CompanyType } from '../../shared/enums/company-type.enum';
 
 const CompanyServicePortMock = (companies: Company[]) => ({
   save: jest.fn().mockResolvedValue({ id: '2' }),
@@ -19,6 +20,7 @@ describe('CompanyService', () => {
       companyName: 'test',
       cuit: '11-11111111-1',
       startDate: new Date(),
+      companyType: CompanyType.SME,
     },
   ];
 
@@ -32,6 +34,7 @@ describe('CompanyService', () => {
     const company = {
       companyName: 'test',
       cuit: '22-22222222-2',
+      companyType: CompanyType.SME,
     };
 
     it('should create a new instance of Company', async () => {
@@ -42,6 +45,7 @@ describe('CompanyService', () => {
       expect(createCompany).toHaveBeenCalledWith(
         company.companyName,
         company.cuit,
+        company.companyType,
       );
     });
 

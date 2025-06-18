@@ -10,7 +10,11 @@ export class CompanyService implements CompanyCreator, CompanyGetter {
   public constructor(private company: CompanyServicePort) {}
 
   async createCompany(companyDto: CreateCompanyDTO): Promise<string> {
-    const company = Company.create(companyDto.companyName, companyDto.cuit);
+    const company = Company.create(
+      companyDto.companyName,
+      companyDto.cuit,
+      companyDto.companyType,
+    );
 
     const { id } = await this.company.save(company);
 
