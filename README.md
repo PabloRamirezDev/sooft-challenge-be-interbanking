@@ -1,5 +1,7 @@
 # SOOFT Challenge BE - Interbanking
 
+- [Versión en Español](./README.es.md)
+
 ## Project setup
 
 ```bash
