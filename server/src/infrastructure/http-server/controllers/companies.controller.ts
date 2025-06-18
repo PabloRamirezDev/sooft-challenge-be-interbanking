@@ -24,23 +24,31 @@ export class CompaniesController {
   ) {}
 
   @Post()
-  public createCompany(@Body() company: CreateCompanyDTO) {
-    return this.companyCreator.createCompany(company);
+  public async createCompany(@Body() company: CreateCompanyDTO) {
+    const id = await this.companyCreator.createCompany(company);
+
+    return {
+      id,
+    };
   }
 
   @Get()
-  public listCompanies(@Query() query: QueryCompanyDTO) {
+  public async listCompanies(@Query() query: QueryCompanyDTO) {
     const { startedAfter, withTransfersAfter } = query;
 
     if (startedAfter && withTransfersAfter) {
       throw new BadRequestException(
         'Cannot filter by startedAfter and withTransfersAfter simultaneously',
       );
-    } else {
-      return this.companyGetter.getCompanies({
-        startedAfter,
-        withTransfersAfter,
-      });
     }
+
+    const companies = await this.companyGetter.getCompanies({
+      startedAfter,
+      withTransfersAfter,
+    });
+
+    return {
+      results: companies,
+    };
   }
 }
