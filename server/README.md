@@ -79,6 +79,7 @@ Content-Type: application/json
 - As it is not required, querying by startedAfter and withTransfersAfter simultaneously is out of scope.
 - Pagination is out of scope.
 - Auth is out of scope.
+- CUIT is validated taking [this implementation](https://wiki.python.org.ar/recetario/validarcuit/) as reference.
 
 ## Design Decisions
 

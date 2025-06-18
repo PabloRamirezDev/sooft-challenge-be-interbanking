@@ -77,6 +77,7 @@ Content-Type: application/json
 - Como no se requiere, la consulta con ambos parámetros `startedAfter` y `withTransfersAfter` al mismo tiempo queda fuera de scope.
 - La paginación está fuera de scope.
 - La autenticación está fuera de scope.
+- El CUIT se valida tomando [esta implementación](https://wiki.python.org.ar/recetario/validarcuit/) como referencia.
 
 ## Decisiones de diseño
 
