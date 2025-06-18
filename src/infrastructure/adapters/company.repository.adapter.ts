@@ -3,7 +3,7 @@ import { CompanyRepositoryPort } from '../../core/domain/ports/outbound/company.
 import { InjectRepository } from '@nestjs/typeorm';
 import { CompanyEntity } from '../database/sqlite/entities/company.entity';
 import { MoreThanOrEqual, Repository } from 'typeorm';
-import { Company } from 'src/core/domain/entities/company.entity';
+import { Company } from '../../core/domain/entities/company.entity';
 
 @Injectable()
 export class CompanyRepositoryAdapter implements CompanyRepositoryPort {

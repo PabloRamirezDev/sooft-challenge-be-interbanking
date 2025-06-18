@@ -3,7 +3,8 @@ import { CompanyCreator } from '../company-creator.usecase';
 import { CompanyServicePort } from '../../domain/ports/inbound/company.service.port';
 import { Company } from '../../domain/entities/company.entity';
 import { CompanyGetter } from '../company-getter.usecase';
-import { QueryCompanyDTO } from 'src/core/shared/dto/QueryCompany.dto';
+import { QueryCompanyDTO } from '../../shared/dto/QueryCompany.dto';
+import { CompanyApplicationError } from '../../shared/error/company-application.error';
 
 export class CompanyService implements CompanyCreator, CompanyGetter {
   public constructor(private company: CompanyServicePort) {}
@@ -27,6 +28,6 @@ export class CompanyService implements CompanyCreator, CompanyGetter {
       );
     }
 
-    throw new Error('Not supported');
+    throw new CompanyApplicationError('Not supported');
   }
 }
