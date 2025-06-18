@@ -1,3 +1,4 @@
+import { CompanyDomainError } from '../../shared/error/company-domain.error';
 import { Company } from '../entities/company.entity';
 import { CompanyDomainService } from './company-domain.service';
 
@@ -45,7 +46,9 @@ describe('CompanyDomainService', () => {
     it('should throw error when date is equal or after current date', () => {
       const date = new Date(Date.now() + 5 * 1000);
 
-      expect(() => service.findCompaniesStartedAfter(date)).toThrow(Error);
+      expect(() => service.findCompaniesStartedAfter(date)).toThrow(
+        CompanyDomainError,
+      );
     });
   });
 
@@ -65,7 +68,7 @@ describe('CompanyDomainService', () => {
       const date = new Date(Date.now() + 5 * 1000);
 
       expect(() => service.findCompaniesWithTransactionsAfter(date)).toThrow(
-        Error,
+        CompanyDomainError,
       );
     });
   });
@@ -78,26 +81,26 @@ describe('CompanyDomainService', () => {
 
     it('should throw error when cuit is not a string', () => {
       expect(() => service.save({ ...company, cuit: 12345 } as any)).toThrow(
-        Error,
+        CompanyDomainError,
       );
     });
 
     it('should throw error when cuit has an valid format', () => {
       expect(() =>
         service.save({ ...company, cuit: '1234567890' } as any),
-      ).toThrow(Error);
+      ).toThrow(CompanyDomainError);
     });
 
     it('should throw error when last cuit digit does not match to the generated one', () => {
       expect(() =>
         service.save({ ...company, cuit: '12-34567890-1' } as any),
-      ).toThrow(Error);
+      ).toThrow(CompanyDomainError);
     });
 
     it('should throw error when companyName is not a string', () => {
       expect(() =>
         service.save({ ...company, companyName: ['name'] } as any),
-      ).toThrow(Error);
+      ).toThrow(CompanyDomainError);
     });
   });
 });

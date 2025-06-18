@@ -1,3 +1,4 @@
+import { CompanyDomainError } from '../../shared/error/company-domain.error';
 import { Company } from '../entities/company.entity';
 import { CompanyServicePort } from '../ports/inbound/company.service.port';
 import { CompanyRepositoryPort } from '../ports/outbound/company.repository.port';
@@ -7,7 +8,7 @@ export class CompanyDomainService implements CompanyServicePort {
 
   public findCompaniesStartedAfter(date: Date): Promise<Company[]> {
     if (!this.validatePreviousDate(date)) {
-      throw new Error('Date must be previous than current date');
+      throw new CompanyDomainError('Date must be previous than current date');
     }
 
     return this.repository.findCompaniesStartedAfter(date);
@@ -15,16 +16,14 @@ export class CompanyDomainService implements CompanyServicePort {
 
   public findCompaniesWithTransactionsAfter(date: Date): Promise<Company[]> {
     if (!this.validatePreviousDate(date)) {
-      throw new Error('Date must be previous than current date');
+      throw new CompanyDomainError('Date must be previous than current date');
     }
 
     return this.repository.findCompaniesWithTransactionsAfter(date);
   }
 
   public save(company: Company): Promise<Company> {
-    if (!this.validateCompany(company)) {
-      throw new Error(`Company is invalid`);
-    }
+    this.validateCompany(company);
 
     return this.repository.save(company);
   }
@@ -37,14 +36,14 @@ export class CompanyDomainService implements CompanyServicePort {
     const { companyName, cuit } = company;
 
     if (typeof cuit !== 'string' || !this.validateCuit(cuit)) {
-      return false;
+      throw new CompanyDomainError(
+        'cuit must be a valid string and have the required format',
+      );
     }
 
     if (typeof companyName !== 'string') {
-      return false;
+      throw new CompanyDomainError('companyName must be a string');
     }
-
-    return true;
   }
 
   private validateCuit(cuit: string): boolean {
