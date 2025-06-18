@@ -1,4 +1,4 @@
-import { CompanyType } from 'src/core/shared/enums/company-type.enum';
+import { CompanyType } from '../../../../core/shared/enums/company-type.enum';
 import { CompanyEntity } from '../entities/company.entity';
 
 export const companies = [
