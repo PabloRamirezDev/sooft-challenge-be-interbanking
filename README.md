@@ -37,6 +37,7 @@ $ npm run test:cov
 - It is not necessary to include a general endpoint to retrieve companies.
 - As it is not required, querying by startedAfter and withTransfersAfter simultaneously is out of scope.
 - Pagination is out of scope.
+- Auth is out of scope.
 
 ## Design Decisions
 
