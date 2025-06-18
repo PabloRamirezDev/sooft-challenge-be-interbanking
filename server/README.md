@@ -6,6 +6,12 @@
 
 ```bash
 $ npm install
+
+# Linux & Mac users
+$ cp .env.example .env
+
+# Windows users
+$ copy .env.example .env
 ```
 
 ## Seed database

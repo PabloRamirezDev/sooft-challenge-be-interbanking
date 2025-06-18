@@ -4,6 +4,12 @@
 
 ```bash
 $ npm install
+
+# Usuarios de Linux y Mac
+$ cp .env.example .env
+
+# Usuarios de Windows
+$ copy .env.example .env
 ```
 
 ## Poblar la base de datos
